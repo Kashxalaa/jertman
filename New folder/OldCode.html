@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium Jet Ski Rental in Batumi. High-speed adventures on the Black Sea. Safe, fun, unforgettable!">
+  <title>Jet Ski Batumi | Thrilling Sea Adventures</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #00eaff;
+      --accent: #ff2a6d;
+      --yellow: #ffd60a;
+      --dark: #003087;
+      --whatsapp: #25D366;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: #003087;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 85px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(15px);
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo { font-family: 'Playfair Display', serif; font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: var(--dark); }
+    .nav-container { display: flex; align-items: center; }
+    nav a { color: var(--dark); text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+    .LogoHome { text-decoration: none; color: var(--dark); }
+    /* LANGUAGE DROPDOWN */
+    .lang-wrapper { position: relative; margin-left: 20px; width: 70px; height: 40px; }
+    .lang-dropdown {
+      position: absolute; top: 0; left: 0; width: 100%; background: #f0f0f0;
+      border-radius: 12px; overflow: hidden; height: 40px; 
+      transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1100;
+    }
+    .lang-dropdown.open { height: 120px; }
+    .lang-btn { display: flex; align-items: center; justify-content: center; width: 100%; height: 40px; background: none; border: none; cursor: pointer; font-size: 13px; font-weight: 800; color: var(--dark); }
+    .lang-btn:hover { background: var(--primary); }
+    .lang-btn.active::after { content: '\f107'; font-family: 'Font Awesome 6 Free'; margin-left: 6px; font-size: 10px; }
+
+    /* HERO */
+    .hero {
+      height: 100vh; min-height: 700px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/675075486_1446189766985047_10179084243098834_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=lBYysBCFzpYQ7kNvwHUK_sK&_nc_oc=AdoGrwYPHUvMoo2JhxHVQg8PqqLrbOIJvpaew-ATstEsQiMPjjp12PBAouMo6cVqyP8&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&_nc_gid=ApWk-l3VtZoRmVg1mP5_GQ&_nc_ss=7a3a8&oh=00_Af2dH30XJv3_hhg61wfLdX6NfwpmiyCCfrCri6xT2TuGeA&oe=69ED57DC') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding-top: 85px;
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 78px); text-shadow: 0 4px 30px rgba(0,0,0,0.7); margin-bottom: 20px; }
+    .hero p { font-size: 1.3rem; margin-bottom: 40px; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
+
+    .btn { display: inline-block; padding: 18px 40px; background: var(--accent); color: white; font-weight: 700; border-radius: 50px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(255,42,109,0.4); transition: 0.4s; margin: 8px; }
+    .btn:hover { transform: translateY(-6px); background: #ff4d8d; }
+    .btn-primary { background: var(--primary); color: #003087; }
+    .btn-whatsapp { background: var(--whatsapp); color: white; }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; text-align: center; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 60px; color: var(--dark); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1250px; margin: 0 auto; }
+    .card { background: white; border-radius: 24px; padding: 32px 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); transition: 0.4s; }
+    .card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0, 234, 255, 0.3); }
+    .price { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin: 16px 0; }
+
+    .cta { background: linear-gradient(135deg, var(--primary), #00b8d4); color: #003087; margin: 80px 5%; border-radius: 32px; padding: 80px 20px; }
+
+    /* MAP SECTION */
+    .map-container { max-width: 1200px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); height: 450px; }
+    iframe { width: 100%; height: 100%; border: none; }
+
+    footer { background: #003087; color: white; padding: 60px 5% 30px; text-align: center; }
+    .social a { font-size: 2.1rem; margin: 0 20px; color: white; transition: 0.3s; display: inline-block; }
+    .social a:hover { transform: scale(1.1); color: var(--primary); }
+
+    @media (max-width: 768px) { nav { display: none; } .map-container { height: 300px; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><a href="#home" class="LogoHome">Jet Ski Batumi</a></div>
+    <div class="nav-container">
+        <nav>
+            <a href="#" data-key="nav_home">Home</a>
+            <a href="#about" data-key="nav_about">About</a>
+            <a href="#fleet" data-key="nav_fleet">Fleet</a>
+            <a href="#location" data-key="nav_loc">Location</a>
+            <a href="#contact" data-key="nav_contact">Contact</a>
+        </nav>
+        <div class="lang-wrapper">
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-btn" id="btn-en" onclick="handleLangClick('en')">EN</button>
+                <button class="lang-btn" id="btn-ru" onclick="handleLangClick('ru')">RU</button>
+                <button class="lang-btn" id="btn-ka" onclick="handleLangClick('ka')">GE</button>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h1 data-key="hero_h1">FEEL THE THRILL!</h1>
+      <p data-key="hero_p">High-Speed Jet Ski Adventures on Batumi’s Sunny Coast</p>
+      <a href="tel:+995599046239" class="btn">📞 <span data-key="btn_call">Call Now</span></a>
+      <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 data-key="about_h2">Adventure Awaits</h2>
+    <div class="cards">
+      <div class="card"><h3 data-key="a1_t">🌊 Epic Sea Rides</h3><p data-key="a1_p">Along the beautiful Batumi coastline</p></div>
+      <div class="card"><h3 data-key="a2_t">🏔️ Stunning Views</h3><p data-key="a2_p">Mountains meet the sea</p></div>
+      <div class="card"><h3 data-key="a3_t">⚡ Pure Speed</h3><p data-key="a3_p">Adrenaline for everyone</p></div>
+      <div class="card"><h3 data-key="a4_t">📸 Memory Making</h3><p data-key="a4_p">You can capture the best moments.</p></div>
+    </div>
+  </section>
+
+  <section id="fleet" style="background:#f0f8ff;">
+    <h2 data-key="fleet_h2">Our Jet Skis</h2>
+    <div class="cards">
+      <div class="card">
+          <h3 data-key="f1_t">Premium Jet Ski</h3>
+          <p data-key="f1_p">1–2 persons • Super Fast & Stable</p>
+          <div class="price"><span data-key="p1_val">100 GEL</span> / <span data-key="p1_time">10 Min</span></div>
+          <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn" style="width:100%;" data-key="book_now">Book Now</a>
+      </div>
+      <div class="card">
+          <h3 data-key="f1_t">Premium Jet Ski</h3>
+          <p data-key="f1_p">1–2 persons • Super Fast & Stable</p>
+          <div class="price"><span data-key="p2_val">190 GEL</span> / <span data-key="p2_time">20 Min</span></div>
+          <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn" style="width:100%;" data-key="book_now">Book Now</a>
+      </div>
+      <div class="card">
+          <h3 data-key="f1_t">Premium Jet Ski</h3>
+          <p data-key="f1_p">1–2 persons • Super Fast & Stable</p>
+          <div class="price"><span data-key="p3_val">270 GEL</span> / <span data-key="p3_time">30 Min</span></div>
+          <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn" style="width:100%;" data-key="book_now">Book Now</a>
+      </div>
+      <div class="card">
+          <h3 data-key="f1_t">Premium Jet Ski</h3>
+          <p data-key="f1_p">1–2 persons • Super Fast & Stable</p>
+          <div class="price"><span data-key="p4_val">500 GEL</span> / <span data-key="p4_time">1 Hour</span></div>
+          <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn" style="width:100%;" data-key="book_now">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <h2 data-key="loc_h2">Find Us on the Coast</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.454899755156!2d41.6165667!3d41.645912499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678557d1ab06e7%3A0xaf4e5d02931aa38c!2sBatumi%20water%20sports%20-%20jetski!5e0!3m2!1sru!2sge!4v1776797739811!5m2!1sru!2sge" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <h2 data-key="cta_h2">Ready to Make Waves?</h2>
+    <p style="font-size:1.5rem; margin:30px 0;" data-key="cta_p">Call or message us right now!</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+        <a href="tel:+995599046239" class="btn" style="background:white; color:#003087; margin:0;">📞 +995 599 046 239</a>
+        <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" class="btn btn-whatsapp" style="margin:0;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://maps.app.goo.gl/B8B77ukJizFkQzbr6" target="_blank" class="btn btn-primary" style="margin:0;"><i class="fas fa-location-arrow"></i> <span data-key="btn_dir">Get Directions</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1JUchXcqQY/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/batumi_jetski" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=%2B995599046239&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzY4ODQzNzEsInBob25lIjoiKzk5NTU5OTA0NjIzOSIsImNvbnRleHQiOiJBZmh4U0l5amtic0xKeUZNTThTdThYNUdfOWJycklxVDd2OW5ZRjY4SE9DbkNVRTVNQ2o3MTBIMmVDa1ZHMy1ySWhUWUpBcm8yTlNGbVdZblpPOFJKLTltNWhfc0NqOUJuMTd3Q3BjU0FOOHpBUjEteWx0TTNRMDk3X3RvQkpsbGRZYWpPeE5PblE5LXRiY3B4RWtsQnpTUk9nIiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.LAMObgZLIT9i4cTPOkcr1UDUMH5tXeOQ_uG4N4nwp93MtdQ2e33yFnAAMqMbL2yaG-KK_gNu1K5bqmwD6WE-YA&fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExSzJ5Nm5SUmhZbkVENWJDdXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5GpsULajIFi0rVexTHHJbd5kFCT21hfUyiZ_uYOCrO1pPVY_G1myQlU1iwWw_aem_paBoa1_vWrXNufJpwM4NMw" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p style="margin-top:40px; opacity:0.9;">© 2026 Jet Ski Batumi • Batumi, Georgia</p>
+  </footer>
+
+  <script>
+    const langData = {
+      en: {
+        nav_home: "Home", nav_about: "About", nav_fleet: "Fleet", nav_loc: "Location", nav_contact: "Contact",
+        hero_h1: "FEEL THE THRILL!", hero_p: "High-Speed Jet Ski Adventures on Batumi’s Sunny Coast",
+        btn_call: "Call Now", btn_dir: "Get Directions",
+        about_h2: "Adventure Awaits",
+        a1_t: "🌊 Epic Sea Rides", a1_p: "Along the beautiful Batumi coastline",
+        a2_t: "🏔️ Stunning Views", a2_p: "Mountains meet the sea",
+        a3_t: "⚡ Pure Speed", a3_p: "Adrenaline for everyone",
+        a4_t: "📸 Memory Making", a4_p: "Capture the best moments.",
+        fleet_h2: "Our Jet Skis",
+        f1_t: "Premium Jet Ski", f1_p: "1–2 persons • Super Fast & Stable",
+        book_now: "Book Now",
+        p1_val: "100 GEL", p1_time: "10 Min",
+        p2_val: "190 GEL", p2_time: "20 Min",
+        p3_val: "270 GEL", p3_time: "30 Min",
+        p4_val: "500 GEL", p4_time: "1 Hr",
+        loc_h2: "Find Us on the Coast",
+        cta_h2: "Ready to Make Waves?", cta_p: "Call or message us right now!"
+      },
+      ru: {
+        nav_home: "Главная", nav_about: "О нас", nav_fleet: "Флот", nav_loc: "Локация", nav_contact: "Контакт",
+        hero_h1: "ПОЧУВСТВУЙ ДРАЙВ!", hero_p: "Скоростные прогулки на гидроциклах в солнечном Батуми",
+        btn_call: "Позвонить", btn_dir: "Маршрут",
+        about_h2: "Приключения ждут",
+        a1_t: "🌊 Эпические поездки", a1_p: "Вдоль побережья Батуми",
+        a2_t: "🏔️ Шикарные виды", a2_p: "Горы и море",
+        a3_t: "⚡ Чистая скорость", a3_p: "Адреналин для каждого",
+        a4_t: "📸 Фото на память", a4_p: "Запечатлейте лучшие моменты.",
+        fleet_h2: "Наши гидроциклы",
+        f1_t: "Премиум Гидроцикл", f1_p: "1–2 чел • Быстрый и стабильный",
+        book_now: "Забронировать",
+        p1_val: "100 GEL", p1_time: "10 Мин",
+        p2_val: "190 GEL", p2_time: "20 Мин",
+        p3_val: "270 GEL", p3_time: "30 Мин",
+        p4_val: "500 GEL", p4_time: "1 Час",
+        loc_h2: "Мы на карте",
+        cta_h2: "Готовы к приключениям?", cta_p: "Позвоните нам прямо сейчас!"
+      },
+      ka: {
+        nav_home: "მთავარი", nav_about: "ჩვენს შესახებ", nav_fleet: "სკუტერები", nav_loc: "ლოკაცია", nav_contact: "კონტაქტი",
+        hero_h1: "იგრძენი ადრენალინი!", hero_p: "სწრაფი წყლის სკუტერები ბათუმის სანაპიროზე",
+        btn_call: "დარეკვა", btn_dir: "მარშრუტი",
+        about_h2: "თავგადასავალი გელოდებათ",
+        a1_t: "🌊 საზღვაო გასეირნება", a1_p: "ბათუმის სანაპიროს გასწვრივ",
+        a2_t: "🏔️ საოცარი ხედები", a2_p: "მთისა და ზღვის შერწყმა",
+        a3_t: "⚡ სისწრაფე", a3_p: "ადრენალინი ყველასთვის",
+        a4_t: "📸 მოგონებები", a4_p: "საუკეთესო მომენტების დასაფიქსირებლად.",
+        fleet_h2: "ჩვენი სკუტერები",
+        f1_t: "პრემიუმ სკუტერი", f1_p: "1–2 პერსონა • სწრაფი და სტაბილური",
+        book_now: "დაჯავშნა",
+        p1_val: "100 ლარი", p1_time: "10 წთ",
+        p2_val: "190 ლარი", p2_time: "20 წთ",
+        p3_val: "270 ლარი", p3_time: "30 წთ",
+        p4_val: "500 ლარი", p4_time: "1 სთ",
+        loc_h2: "ჩვენი მდებარეობა",
+        cta_h2: "მზად ხართ ტალღებისთვის?", cta_p: "დაგვიკავშირდით ახლავე!"
+      }
+    };
+
+    let currentLang = localStorage.getItem('selectedLang') || 'en';
+
+    function handleLangClick(lang) {
+      const dropdown = document.getElementById('langDropdown');
+      if (!dropdown.classList.contains('open')) { dropdown.classList.add('open'); } 
+      else { setLanguage(lang); dropdown.classList.remove('open'); }
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('selectedLang', lang);
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (langData[lang][key]) el.innerText = langData[lang][key];
+      });
+      const dropdown = document.getElementById('langDropdown');
+      const activeBtn = document.getElementById('btn-' + lang);
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      dropdown.prepend(activeBtn);
+      activeBtn.classList.add('active');
+    }
+
+    window.onclick = function(event) { if (!event.target.closest('.lang-wrapper')) { document.getElementById('langDropdown').classList.remove('open'); } }
+    window.onload = () => setLanguage(currentLang);
+  </script>
+
+</body>
+</html>
